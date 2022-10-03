@@ -26,11 +26,7 @@ class AuthTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("[data-test-id='action-login']").click();
-        $("[class=\"App_appContainer__3jRx1\"]").shouldHave(Condition.text("Личный кабинет"));
-
-        // TODO: добавить логику теста, в рамках которого будет выполнена попытка входа в личный кабинет с учётными
-        //  данными зарегистрированного активного пользователя, для заполнения полей формы используйте
-        //  пользователя registeredUser
+        $("[class=\"heading heading_size_l heading_theme_alfa-on-white\"]").shouldHave(Condition.text("Личный кабинет"));
     }
 
     @Test
@@ -41,8 +37,6 @@ class AuthTest {
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
         $("[data-test-id='action-login']").click();
         $("[class='notification__content']").shouldHave(Condition.text("Неверно указан логин или пароль"));
-        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет
-        //  незарегистрированного пользователя, для заполнения полей формы используйте пользователя notRegisteredUser
     }
 
     @Test
@@ -53,8 +47,6 @@ class AuthTest {
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $("[data-test-id='action-login']").click();
         $("[class='notification__content']").shouldHave(Condition.text("Пользователь заблокирован"));
-        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет,
-        //  заблокированного пользователя, для заполнения полей формы используйте пользователя blockedUser
     }
 
     @Test
@@ -66,9 +58,6 @@ class AuthTest {
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("[data-test-id='action-login']").click();
         $("[class='notification__content']").shouldHave(Condition.text("Неверно указан логин или пароль"));
-        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
-        //  логином, для заполнения поля формы "Логин" используйте переменную wrongLogin,
-        //  "Пароль" - пользователя registeredUser
     }
 
     @Test
@@ -80,8 +69,5 @@ class AuthTest {
         $("[data-test-id='password'] input").setValue(wrongPassword);
         $("[data-test-id='action-login']").click();
         $("[class='notification__content']").shouldHave(Condition.text("Неверно указан логин или пароль"));
-        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
-        //  паролем, для заполнения поля формы "Логин" используйте пользователя registeredUser,
-        //  "Пароль" - переменную wrongPassword
     }
 }
